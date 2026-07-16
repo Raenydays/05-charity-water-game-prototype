@@ -3,11 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Microbe Mayhem</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to the Charity Water Game Prototype</h1>
+    <img class="pageLogo" src="img/cw_logo_horizontal.png" alt="charity: water logo">
+    <h1>Microbe Mayhem</h1>
+
+    <div class="hud">
+        <div class="scoreGroup">
+            <p id="score">Purified: 0</p>
+            <p id="enemiesLeft">Enemies Left: 15</p>
+        </div>
+        <button id="restartButton">Restart</button>
+    </div>
+
+    <p id="status">Use the arrow keys or A/D to move. Press the space bar to purify.</p>
+
+    <div class="gameArea">
+        <canvas id="gameCanvas" width="480" height="600"></canvas>
+        <div id="confettiLayer" class="confettiLayer" aria-hidden="true"></div>
+        <div id="timerDisplay" class="timerDisplay">Time: 0.0s</div>
+
+        <div id="startOverlay" class="overlay visible">
+            <div class="overlayContent">
+                <h2>Start the Mission</h2>
+                <p>Clear the microbes and protect the water supply.</p>
+                <div class="difficultyControl">
+                    <label for="difficultySlider">Difficulty</label>
+                    <input id="difficultySlider" type="range" min="0" max="2" value="1" step="1">
+                    <p id="difficultyValue" class="difficultyValue">Medium</p>
+                </div>
+                <button id="startButton" class="overlayButton">Start</button>
+            </div>
+        </div>
+
+        <div id="victoryOverlay" class="overlay">
+            <div class="overlayContent">
+                <h2>Congratulations!</h2>
+                <p>“Clean water is a basic human right and a foundation for health, dignity, and opportunity.”</p>
+                <p>Your victory helps <span class="brandNoWrap">The Spring</span> support monthly giving for safe water where it is needed most.</p>
+                <div class="nicknameForm">
+                    <label for="playerName">Enter your nickname</label>
+                    <input id="playerName" type="text" maxlength="12" placeholder="Player">
+                </div>
+                <button id="playAgainButton" class="overlayButton">Save & Play Again</button>
+                <img class="overlayLogo" src="img/cw_logo_horizontal.png" alt="charity: water logo">
+            </div>
+        </div>
+
+        <div id="gameOverOverlay" class="overlay">
+            <div class="overlayContent">
+                <h2>Game Over!</h2>
+                <p>Every drop matters. Helping <span class="brandNoWrap">charity: water</span> supports families with reliable access to safe water.</p>
+                <button id="retryButton" class="overlayButton">Retry</button>
+                <img class="overlayLogo" src="img/cw_logo_horizontal.png" alt="charity: water logo">
+            </div>
+        </div>
+
+        <div id="scoreboard" class="scoreboard">
+            <h3>Scoreboard</h3>
+            <ol id="scoreboardList"></ol>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
